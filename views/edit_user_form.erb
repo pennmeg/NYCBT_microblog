@@ -1,0 +1,16 @@
+
+
+
+<div class="form-box">
+  <form class="user-form" method="get" action="/update_user">
+      <p>Edit Firstname: <input type="text" name="fname" value="<%= @user[:firstname] %>"></p>
+      <p>Edit Lastname: <input type="text" name="lname" value="<%= @user[:lastname] %>"></p>
+      <p>Edit Email: <input type="text" name="email" value="<%= @user[:email] %>"></p>
+      <p>Edit Username: <input type="text" name="username" value="<%= @user[:username] %>"></p>
+      <p>Edit Password: <input type="text" name="password" value="<%= @user[:password] %>"></p>
+      <input type="hidden" name="id" value="<%= @user[:id] %>">
+      <input type="submit" value="Submit">
+  </form>
+
+
+</div>

@@ -1,0 +1,15 @@
+
+
+<p>Current members</p>
+
+<% @users.each do |user| %>
+
+
+
+
+<p><a href= "/user_profile?id=<%= user[:id] %>">
+<%= user[:fname].to_s + " " + user[:lname].to_s %></a></p>
+
+<% puts "user[:id]: #{user[:id].inspect}" %>
+
+<% end %>
