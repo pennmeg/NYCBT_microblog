@@ -1,4 +1,0 @@
-<!-- ======= menu ======= -->
-<div id="menu-container" class="section">
-<%= erb :menu %>
-</div>
