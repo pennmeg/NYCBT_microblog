@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   has_many :comments
 end
 
-class Comments < ActiveRecord::Base
+class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
 end
