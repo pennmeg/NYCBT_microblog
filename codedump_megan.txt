@@ -1,28 +1,10 @@
-get '/user_profile' do
-	puts "\n******* GET: profile:ID *******"
-	# params2 = params.except(:captures)
-	puts "@users: #{@users.inspect}"
-	@user = User.find(params2[:id])
-	erb :user_profile
-end
-
-post '/signup' do
-	puts "\n******* POST: signup *******"
-	puts "params: #{params.inspect}"
-  # puts "params[:username].inspect: #{params[:username].inspect}"
-	# puts "params[:password].inspect: #{params[:password].inspect}"
-	#next line ^^params2^^ due to error in params looking for "captures"
-	params2 = params.except(:captures)
-	puts "params2: #{params2.inspect}"
-	User.create(
-		username: params2[:username],
-		password: params2[:password],
-		firstname: params2[:firstname],
-		lastname: params2[:lastname],
-		email: params2[:email],
-		created_at: DateTime.now
-	)
-	@user = User.order("created_at").last
-	puts "@user: #{@user.inspect}"
-	erb :user_profile
-end
+<!-- ======= menu ======= -->
+<div id="menu-container" class="section">
+<%= erb :menu %>
+</div>
+<p><%= @user[:fname] %></p>
+<p><%= @user[:lname] %></p>
+<p><%= @user[:username] %></p>
+<p><%= @user[:password] %></p>
+<p><%= @user[:email] %></p>
+<p><%= @user[:created_at] %></p>

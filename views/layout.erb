@@ -15,6 +15,14 @@
 	    <div id="header" class="section">
 			<h1>NYCBT</h1>
 		</div>
+		<!-- ======= menu ======= -->
+		<div id="menu-container" class="section">
+		<% if session[:user_id] %>
+			<%= erb :menu %>
+		<% else %>
+			<%= erb :menu_two %>
+		<% end %>
+	</div>
 
 
 	    <!-- ======= content ======= -->

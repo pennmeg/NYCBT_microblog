@@ -1,23 +1,16 @@
 # ======= ======= ======= SETUP ======= ======= =======
-# ======= ======= ======= SETUP ======= ======= =======
-# ======= ======= ======= SETUP ======= ======= =======
 
 # ======= requires =======
 require "sinatra"
 require "sinatra/reloader"
 require 'sinatra/activerecord'
-
 # ======= models =======
 require './models'
-
 # ======= database =======
-set :database, "sqlite3:micro_blog.db"		# set "user_db" to YOUR database name
-
+set :database, "sqlite3:micro_blog.db"
 # ======= sessions =======
 enable :sessions
 
-# ======= ======= ======= ROUTER ======= ======= =======
-# ======= ======= ======= ROUTER ======= ======= =======
 # ======= ======= ======= ROUTER ======= ======= =======
 
 # ======= publish =======
@@ -75,14 +68,8 @@ end
 # ======= signout =======
 get '/signout' do
 	puts "\n*******GET: signout *******"
-	erb :logged_out
-end
-
-# ======= signout =======
-post '/signout' do
-	puts "\n******* POST: signout *******"
-	puts "params.inspect: #{params.inspect}"
-	erb :logged_out		#could take the user back erb :home
+	session[:user_id] = nil
+	erb :home
 end
 
 # ======= signup_form =======
@@ -109,19 +96,11 @@ post '/signup' do
 	erb :user_profile
 end
 
-# ======= user_list ========
-get '/user_list' do
-	puts "\n******* user_list *******"
-	@users = User.all
-	puts "params: #{params.inspect}"
-	erb :user_list
-end
-
 # ======= user_profile ========
 get '/user_profile' do
 	puts "\n******* GET: profile:ID *******"
 	puts "@users: #{@users.inspect}"
-	@user = User.find(params[:id])
+	@user = User.find(session[:user_id])
 	erb :user_profile
 end
 
@@ -169,10 +148,16 @@ get "/update_user" do
 	erb :user_profile
 end
 
-# ======= view_user_profile ========
-get '/view_profile' do
-	puts "\n******* view_profile *******"
+# ======= user_list ========
+get '/user_list' do
+	puts "\n******* user_list *******"
+	@users = User.all
 	puts "params: #{params.inspect}"
+	erb :user_list
+end
+
+get '/view_profile' do
+	puts "****** user_profile ******"
 	@user = User.find(params[:id])
 	erb :view_profile
 end
