@@ -4,12 +4,12 @@
 
 <div class="form-box">
   <form class="user-form" method="post" action="/delete_user">
-      <p>Delete Firstname: <input type="text" name="fname" value="<%= @user[:firstname] %>"></p>
-      <p>Delete Lastname: <input type="text" name="lname" value="<%= @user[:lastname] %>"></p>
-      <p>Delete Email: <input type="text" name="email" value="<%= @user[:email] %>"></p>
-      <p>Delete Username: <input type="text" name="username" value="<%= @user[:username] %>"></p>
-      <p>Delete Password: <input type="text" name="password" value="<%= @user[:password] %>"></p>
-      <input type="hidden" name="id" value="<%= @user[:id] %>">
+      <p>Delete Firstname: <input type="text" name="fname" value="<%= @current_user[:fname] %>"></p>
+      <p>Delete Lastname: <input type="text" name="lname" value="<%= @current_user[:lname] %>"></p>
+      <p>Delete Email: <input type="text" name="email" value="<%= @current_user[:email] %>"></p>
+      <p>Delete Username: <input type="text" name="username" value="<%= @current_user[:username] %>"></p>
+      <p>Delete Password: <input type="text" name="password" value="<%= @current_user[:password] %>"></p>
+      <input type="hidden" name="id" value="<%= @current_user[:id] %>">
       <input type="submit" value="DELETE">
   </form>
 

@@ -102,9 +102,9 @@ post '/signup' do
 		membertype: params[:membertype],
 		created_at: DateTime.now
 	)
-	@user = User.order("created_at").last
-	puts "@user: #{@user.inspect}"
-	erb :user_profile
+	# @user = User.order("created_at").last
+	# puts "@user: #{@user.inspect}"
+	erb :signin_form
 end
 
 # ======= user_profile ========
@@ -119,7 +119,7 @@ end
 get '/delete_user_form' do
 	puts "\n******* delete_user_form *******"
 	puts "params: #{params.inspect}"
-	@user = User.find(params[:id])
+	current_user
 	erb :delete_user_form
 end
 
@@ -127,7 +127,8 @@ end
 post '/delete_user' do
 	puts "\n******* POST: delete_user *******"
 	puts "params: #{params.inspect}"
-	@user = User.find(params[:id]).destroy
+	current_user
+	@current_user = User.find(params[:id]).destroy
 	@users = User.all
 	erb :home
 end
@@ -137,8 +138,8 @@ end
 get '/edit_user_form' do
 	puts "\n******* edit_user_form *******"
 	puts "params: #{params.inspect}"
-	@user = User.find(params[:id])
-	puts "@user: #{@user.inspect}"
+	current_user
+	puts "@current_user: #{@current_user.inspect}"
 	erb :edit_user_form
 end
 
@@ -155,7 +156,7 @@ get "/update_user" do
 		membertype: params[:membertype],
 		# created_at: DateTime.now
 	)
-	@user = User.find(params[:id])
+	current_user
 	erb :user_profile
 end
 
