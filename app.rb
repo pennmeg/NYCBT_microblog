@@ -35,6 +35,7 @@ post '/publish_form' do
 	puts "@post: #{@post.inspect}"
 	@posts = Post.all
 	puts "@posts: #{@posts.inspect}"
+	current_user
 	erb :user_profile
 end
 

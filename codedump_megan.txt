@@ -8,3 +8,7 @@
 <p><%= @user[:password] %></p>
 <p><%= @user[:email] %></p>
 <p><%= @user[:created_at] %></p>
+
+
+Comes from update_user
+<!-- <div class="menu-item"><a href="/publish_form?id=<%= @user[:id] %>">Post</a></div> -->
