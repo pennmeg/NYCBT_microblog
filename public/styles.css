@@ -70,3 +70,7 @@ body {
     height: 60%;
     background-color: thistle;
 }
+.user-form {
+  height: 150px;
+  width: 300px;
+}

@@ -2,17 +2,13 @@
     <form class="user-form" method="post" action="/publish_form">
       <p>Publish a New Post: <input type="text" name="post_content" value="fds" maxlength="200"></p>
       <input type="submit" value="Submit">
-
     </form>
+    <% @posts.each do |post| %>
+      <p><%= post[:post_content] %>**<%= @user[:username] %></p>
+      <% puts "post[:post_content]: #{post[:post_content].inspect}" %>
+      <p><%= post[:created_at] %></p>
+    <% end %>
 
-
+</div>
 <div class="menu-item"><a href="/edit_user_form?id=<%= @current_user[:id] %>">Edit User</a></div>
 <div class="menu-item"><a href="/delete_user_form?id=<%= @current_user[:id] %>">Delete User</a></div>
-
-
-<p><%= @current_user[:fname] %></p>
-<p><%= @current_user[:lname] %></p>
-<p><%= @current_user[:username] %></p>
-<p><%= @current_user[:password] %></p>
-<p><%= @current_user[:email] %></p>
-<p><%= @current_user[:created_at] %></p>

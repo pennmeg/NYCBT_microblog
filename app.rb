@@ -36,6 +36,7 @@ post '/publish_form' do
 	@posts = Post.all
 	puts "@posts: #{@posts.inspect}"
 	current_user
+	@user = User.find(params[:id])
 	erb :user_profile
 end
 
@@ -68,6 +69,8 @@ post '/signin' do
 			session[:user_id] = @user[:id]
 			puts "session[:user_id]: #{session[:user_id].inspect}"
 			current_user
+			@posts = Post.all
+			@user = User.find(params[:id])
 			erb :user_profile
 		else
 			erb :signin_form
