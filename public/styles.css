@@ -1,6 +1,7 @@
 /* ======= ======= ======= general ======= ======= ======= */
 html, body {
-  height: 100%;
+  width: 100%;
+  margin: -10px 0px;
   box-sizing: content-box;
 }
 body {
@@ -20,6 +21,7 @@ header {
    background-size: cover;
    background-position: center;
    height: 200px;
+   padding: 10px;
 }
 header > h1 {
   margin: 10px;
