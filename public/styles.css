@@ -1,10 +1,76 @@
 /* ======= ======= ======= general ======= ======= ======= */
 html, body {
-    height: 100%;
-    box-sizing: content-box;
+  height: 100%;
+  box-sizing: content-box;
 }
 body {
-    font-family: "Ariel", sans-serif;
+  font-family: "Ariel", sans-serif;
+}
+
+/* ======= ======= ======= sections ======= ======= ======= */
+.section {
+  margin: 20px auto;
+  padding: 10px;
+  width: 80%;
+  border: 2px solid purple;
+  box-sizing: border-box;
+}
+header {
+   background-image: url("/img/keyboard.jpeg");
+   background-size: cover;
+   background-position: center;
+   height: 200px;
+}
+header > h1 {
+  margin: 10px;
+  text-align: center;
+  color: purple;
+}
+#menu-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+}
+#yield-container {
+  min-height: 360px;
+  text-align: center;
+  background-color: moccasin;
+  border: 2px solid darkorange;
+}
+footer {
+  background-color: #eee;
+}
+
+/* ======= ======= ======= menu ======= ======= ======= */
+.menu-item {
+  width: 120px;
+  height: 40px;
+  margin: 10px;
+  padding: 8px;
+  text-align: center;
+  background-color: red;
+  box-sizing: border-box;
+}
+.menu-item > a {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: white;
+}
+.menu-item:hover {
+  background-color: moccasin;
+  color: purple;
+}
+.menu-item:hover > a {
+  color: darkorange;
+}
+
+/* ======= ======= ======= forms ======= ======= ======= */
+#form-box {
+  width: 80%;
+  height: 60%;
+  background-color: thistle;
 }
 
 /* ==== wrapper ==== */
@@ -13,75 +79,9 @@ body {
   justify-content: space-around;
   align-items: center;
 }
-
 #wrapperOne {
   width: 50%;
 }
-
 #wrapperTwo {
   width: 50%;
-}
-
-/* ======= ======= ======= sections ======= ======= ======= */
-.section {
-    margin: 20px auto;
-    padding: 10px;
-    width: 80%;
-    border: 2px solid purple;
-    box-sizing: border-box;
-}
-#header {
-     background-image: url("landscape.jpeg");
-     background-repeat: no-repeat;
-}
-#header > h1 {
-    margin: 10px;
-    text-align: center;
-
-}
-#menu-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
-}
-#yield-container {
-    min-height: 360px;
-    text-align: center;
-    background-color: moccasin;
-    border: 2px solid darkorange;
-}
-#footer {
-    background-color: #eee;
-}
-
-/* ======= ======= ======= menu ======= ======= ======= */
-.menu-item {
-    width: 120px;
-    height: 40px;
-    margin: 10px;
-    padding: 8px;
-    text-align: center;
-    background-color: red;
-    box-sizing: border-box;
-}
-.menu-item > a {
-    font-size: 1.2em;
-    text-decoration: none;
-    color: white;
-}
-.menu-item:hover {
-    background-color: moccasin;
-    color: purple;
-}
-.menu-item:hover > a {
-    color: darkorange;
-}
-
-/* ======= ======= ======= forms ======= ======= ======= */
-#form-box {
-    width: 80%;
-    height: 60%;
-    background-color: thistle;
 }
