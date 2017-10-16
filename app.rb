@@ -23,23 +23,6 @@ def current_user
 	end
 end
 
-# ======= publish =======
-post '/publish_form' do
-	puts "\n******* GET: publish_form *******"
-	puts "@params.inspect: #{@params.inspect}"
-	Post.create(
-		user_id: session[:user_id],
-		post_content: params[:post_content]
-	)
-	@post = Post.order("created_at").last
-	puts "@post: #{@post.inspect}"
-	@posts = Post.all
-	puts "@posts: #{@posts.inspect}"
-	current_user
-	@user = User.find(params[:id])
-	erb :user_profile
-end
-
 # ======= default =======
 get '/' do
 	puts "\n******* / *******"
@@ -49,41 +32,6 @@ end
 # ======= home =======
 get '/home' do
 	puts "\n******* home *******"
-	erb :home
-end
-
-# ======= signin_form =======
-get '/signin_form' do
-	puts "\n******* GET: signin_form *******"
-	erb :signin_form
-end
-
-# ======= signin =======
-post '/signin' do
-	puts "\n******* POST: signin *******"
-	puts "@params.inspect: #{@params.inspect}"
-	@user = User.where(:username => params[:username]).first   # ===finds if the username entered matches a username in the database
-	puts "@user: #{@user.inspect}"
-	if @user
-		if params[:password] == @user[:password]
-			session[:user_id] = @user[:id]
-			puts "session[:user_id]: #{session[:user_id].inspect}"
-			current_user
-			@posts = Post.all
-			@user = User.find(params[:id])
-			erb :user_profile
-		else
-			erb :signin_form
-		end
-	else
-			erb :signup_form
-	end
-end
-
-# ======= signout =======
-get '/signout' do
-	puts "\n*******GET: signout *******"
-	session[:user_id] = nil
 	erb :home
 end
 
@@ -111,6 +59,39 @@ post '/signup' do
 	erb :signin_form
 end
 
+# ======= signin_form =======
+get '/signin_form' do
+	puts "\n******* GET: signin_form *******"
+	erb :signin_form
+end
+
+# ======= signin =======
+post '/signin' do
+	puts "\n******* POST: signin *******"
+	puts "@params.inspect: #{@params.inspect}"
+	@user = User.where(:username => params[:username]).first   # ===finds if the username entered matches a username in the database
+	puts "@user: #{@user.inspect}"
+	if @user
+		if params[:password] == @user[:password]
+			session[:user_id] = @user[:id]
+			puts "session[:user_id]: #{session[:user_id].inspect}"
+			current_user
+			@posts = Post.all
+			@user_array = []
+			@posts.each do |post|
+				user_id = post[:user_id]
+				user_record = User.find(user_id)
+				@user_array.push(user_record)
+			end
+			erb :user_profile
+		else
+			erb :signin_form
+		end
+	else
+			erb :signup_form
+	end
+end
+
 # ======= user_profile ========
 get '/user_profile' do
 	puts "\n******* GET: profile:ID *******"
@@ -119,24 +100,27 @@ get '/user_profile' do
 	erb :user_profile
 end
 
-# ======= delete_user ========
-get '/delete_user_form' do
-	puts "\n******* delete_user_form *******"
-	puts "params: #{params.inspect}"
+# ======= publish =======
+post '/publish_form' do
+	puts "\n******* GET: publish_form *******"
+	puts "@params.inspect: #{@params.inspect}"
+	Post.create(
+		user_id: session[:user_id],
+		post_content: params[:post_content]
+	)
+	@post = Post.order("created_at").last
+	puts "@post: #{@post.inspect}"
+	@posts = Post.all
+	@user_array = []
+	@posts.each do |post|
+		user_id = post[:user_id]
+		user_record = User.find(user_id)
+		@user_array.push(user_record)
+	end
+	puts "@posts: #{@posts.inspect}"
 	current_user
-	erb :delete_user_form
+	erb :user_profile
 end
-
-# ======= delete_user ========
-post '/delete_user' do
-	puts "\n******* POST: delete_user *******"
-	puts "params: #{params.inspect}"
-	current_user
-	@current_user = User.find(params[:id]).destroy
-	@users = User.all
-	erb :home
-end
-
 
 # ======= edit_user ========
 get '/edit_user_form' do
@@ -164,6 +148,24 @@ get "/update_user" do
 	erb :user_profile
 end
 
+# ======= delete_user ========
+get '/delete_user_form' do
+	puts "\n******* delete_user_form *******"
+	puts "params: #{params.inspect}"
+	current_user
+	erb :delete_user_form
+end
+
+# ======= delete_user ========
+post '/delete_user' do
+	puts "\n******* POST: delete_user *******"
+	puts "params: #{params.inspect}"
+	current_user
+	@current_user = User.find(params[:id]).destroy
+	@users = User.all
+	erb :home
+end
+
 # ======= user_list ========
 get '/user_list' do
 	puts "\n******* user_list *******"
@@ -176,4 +178,11 @@ get '/view_profile' do
 	puts "****** user_profile ******"
 	@user = User.find(params[:id])
 	erb :view_profile
+end
+
+# ======= signout =======
+get '/signout' do
+	puts "\n*******GET: signout *******"
+	session[:user_id] = nil
+	erb :home
 end

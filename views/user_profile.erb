@@ -3,8 +3,9 @@
       <p>Publish a New Post: <input type="text" name="post_content" value="fds" maxlength="200"></p>
       <input type="submit" value="Submit">
     </form>
-    <% @posts.each do |post| %>
-      <p><%= post[:post_content] %>**<%= @user[:username] %></p>
+    <% @posts.each_with_index do |post, index| %>
+      <% user_record = @user_array[index] %>
+      <p><%= post[:post_content] %>**<%= user_record[:username] %></p>
       <% puts "post[:post_content]: #{post[:post_content].inspect}" %>
       <p><%= post[:created_at] %></p>
     <% end %>
