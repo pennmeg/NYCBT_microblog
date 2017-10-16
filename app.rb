@@ -177,6 +177,7 @@ end
 get '/view_profile' do
 	puts "****** user_profile ******"
 	@user = User.find(params[:id])
+	@posts = Post.all
 	erb :view_profile
 end
 

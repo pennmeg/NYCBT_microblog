@@ -1,21 +1,14 @@
 <!doctype html>
 <html lang="en">
-
-  <!-- ======= ======= ======= head ======= ======= ======= -->
 	<head>
-		<!-- ======= scripts ======= -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script type="text/javascript" src="/script.js"></script>
-	    <link rel="stylesheet" type="text/css" href="styles.css">
+	  <link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
-
-  <!-- ======= ======= ======= body ======= ======= ======= -->
 	<body>
-	    <!-- ======= header ======= -->
-	    <div id="header" class="section">
-			<h1>NYCBT</h1>
-		</div>
-		<!-- ======= menu ======= -->
+    <header>
+			<h1>New You Could Blog This (NYCBT)</h1>
+		</header>
 		<div id="menu-container" class="section">
 		<% if session[:user_id] %> <!-- if we used current_user we would need to have it in each page/line -->
 			<%= erb :menu %>
@@ -23,17 +16,11 @@
 			<%= erb :menu_two %>
 		<% end %>
 	</div>
-
-
-	    <!-- ======= content ======= -->
-		<div id="yield-container" class="section">
-			<%= yield %>
-		</div>
-
-	    <!-- ======= footer ======= -->
-	    <div id="footer" class="section">
-	        <p>footer</p>
-	    </div>
-
+	<div id="yield-container" class="section">
+		<%= yield %>
+	</div>
+  <footer>
+      <p>&copy; 2017 Ian &amp; Megan</p>
+  </footer>
 	</body>
 </html>
