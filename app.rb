@@ -1,5 +1,4 @@
 # ======= ======= ======= SETUP ======= ======= =======
-
 # ======= requires =======
 require "sinatra"
 require "sinatra/reloader"
@@ -12,6 +11,17 @@ set :database, "sqlite3:micro_blog.db"
 enable :sessions
 
 # ======= ======= ======= ROUTER ======= ======= =======
+# ====== current_user ======
+def current_user
+	puts "*** current_user ***"
+	if session[:user_id]
+		@current_user = User.find(session[:user_id])
+		puts "@current_user: #{@current_user}"
+	else
+		@current_user = nil
+		puts "@current_user: #{@current_user}"
+	end
+end
 
 # ======= publish =======
 post '/publish_form' do
@@ -56,6 +66,7 @@ post '/signin' do
 		if params[:password] == @user[:password]
 			session[:user_id] = @user[:id]
 			puts "session[:user_id]: #{session[:user_id].inspect}"
+			current_user
 			erb :user_profile
 		else
 			erb :signin_form
@@ -100,7 +111,7 @@ end
 get '/user_profile' do
 	puts "\n******* GET: profile:ID *******"
 	puts "@users: #{@users.inspect}"
-	@user = User.find(session[:user_id])
+	current_user
 	erb :user_profile
 end
 

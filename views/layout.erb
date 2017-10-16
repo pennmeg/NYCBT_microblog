@@ -17,7 +17,7 @@
 		</div>
 		<!-- ======= menu ======= -->
 		<div id="menu-container" class="section">
-		<% if session[:user_id] %>
+		<% if session[:user_id] %> <!-- if we used current_user we would need to have it in each page/line -->
 			<%= erb :menu %>
 		<% else %>
 			<%= erb :menu_two %>
