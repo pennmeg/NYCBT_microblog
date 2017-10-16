@@ -7,8 +7,20 @@ body {
     font-family: "Ariel", sans-serif;
 }
 
-/* ==== wrapper
+/* ==== wrapper ==== */
+#wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
+#wrapperOne {
+  width: 50%;
+}
+
+#wrapperTwo {
+  width: 50%;
+}
 
 /* ======= ======= ======= sections ======= ======= ======= */
 .section {
