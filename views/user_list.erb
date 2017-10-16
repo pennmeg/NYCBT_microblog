@@ -1,7 +1,7 @@
-<p>Current members</p>
+<p>NYCBT Users</p>
 
 <% @users.each do |user| %>
   <p><a href= "/view_profile?id=<%= user[:id] %>">
-  <%= user[:username] %></a></p>
+    <%= user[:username] %></a></p>
   <% puts "user[:id]: #{user[:id].inspect}" %>
 <% end %>
