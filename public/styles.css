@@ -6,6 +6,7 @@ html, body {
 }
 body {
   font-family: "Ariel", sans-serif;
+  background-color: #efdcf9;
 }
 
 /* ======= ======= ======= sections ======= ======= ======= */
@@ -13,7 +14,7 @@ body {
   margin: 20px auto;
   padding: 10px;
   width: 80%;
-  border: 2px solid purple;
+  border: 2px solid #323e42;
   box-sizing: border-box;
 }
 header {
@@ -26,48 +27,49 @@ header {
 header > h1 {
   margin: 10px;
   text-align: center;
-  color: purple;
+  color: #efdcf9;
 }
 #menu-container {
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 80px;
+  height: 60px;
+  background-color: #efdcf9;
 }
 #yield-container {
   min-height: 360px;
   text-align: center;
-  background-color: moccasin;
-  border: 2px solid darkorange;
 }
 footer {
-  background-color: #eee;
+  background-color: #323e42;
+  padding: 10px;
+  text-align: center;
 }
-
+.postContent {
+  border-bottom: 1px solid #323e42;
+  margin: 2px;
+}
 /* ======= ======= ======= menu ======= ======= ======= */
 .menu-item {
   width: 120px;
-  height: 40px;
+  height: 30px;
   margin: 10px;
   padding: 8px;
   text-align: center;
-  background-color: red;
+  background-color: #c55ffc;
   box-sizing: border-box;
+  display: inline-block;
 }
 .menu-item > a {
-  font-size: 1.2em;
+  font-size: 1em;
   text-decoration: none;
   color: white;
 }
 .menu-item:hover {
-  background-color: moccasin;
-  color: purple;
+  background-color: #7954a1;
 }
-.menu-item:hover > a {
-  color: darkorange;
-}
-
 /* ======= ======= ======= forms ======= ======= ======= */
 #form-box {
   width: 80%;
@@ -79,7 +81,6 @@ footer {
 #wrapper {
   display: flex;
   justify-content: space-around;
-  align-items: center;
 }
 #wrapperOne {
   width: 50%;

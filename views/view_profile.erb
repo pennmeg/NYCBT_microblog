@@ -6,5 +6,12 @@
     <p>User Since: <%= @user[:created_at] %></p>
   </div>
   <div id="wrapperTwo">
+    <% @posts.each do |post| %>
+      <div class="postContent">
+        <p><%= post[:post_content] %> BY: <%= @user[:username] %></p>
+        <p>AT: <%= post[:created_at] %></p>
+      </div>
+      <% puts "post[:post_content]: #{post[:post_content].inspect}" %>
+    <% end %>
   </div>
 </div>

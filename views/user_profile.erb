@@ -8,11 +8,14 @@
     </div>
   </div>
   <div id="wrapperTwo">
+    <h1>NYCBT Feed</h1>
     <% @posts.each_with_index do |post, index| %>
       <% user_record = @user_array[index] %>
-      <p><%= post[:post_content] %>**<%= user_record[:username] %></p>
+      <div class="postContent">
+        <p><%= post[:post_content] %> BY: <%= user_record[:username] %></p>
+        <p>AT: <%= post[:created_at] %></p>
+      </div>
       <% puts "post[:post_content]: #{post[:post_content].inspect}" %>
-      <p><%= post[:created_at] %></p>
     <% end %>
   </div>
 </div>

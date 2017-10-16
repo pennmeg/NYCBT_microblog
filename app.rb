@@ -171,13 +171,17 @@ get '/user_list' do
 	puts "\n******* user_list *******"
 	@users = User.all
 	puts "params: #{params.inspect}"
+	@posts = Post.all
+	puts "@posts: #{@posts.inspect}"
+	current_user
 	erb :user_list
 end
 
 get '/view_profile' do
 	puts "****** user_profile ******"
 	@user = User.find(params[:id])
-	@posts = Post.all
+	@posts = @user.posts
+	current_user
 	erb :view_profile
 end
 
