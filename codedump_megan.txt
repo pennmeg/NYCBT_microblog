@@ -8,6 +8,7 @@
 <p><%= @user[:password] %></p>
 <p><%= @user[:email] %></p>
 <p><%= @user[:created_at] %></p>
+<p><%= @current_user[:post_content] %></p>
 
 
 Comes from update_user
