@@ -1,5 +1,5 @@
-<p>NYCBT Users</p>
-
+<h2>NYCBT Users</h2>
+<p>by Username</p>
 <% @users.each do |user| %>
   <p><a href= "/view_profile?id=<%= user[:id] %>">
     <%= user[:username] %></a></p>

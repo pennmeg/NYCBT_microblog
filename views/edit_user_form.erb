@@ -1,16 +1,10 @@
-
-
-
-<div class="form-box">
-  <form class="user-form" method="get" action="/update_user">
-      <p>Edit Firstname: <input type="text" name="fname" value="<%= @current_user[:fname] %>"></p>
-      <p>Edit Lastname: <input type="text" name="lname" value="<%= @current_user[:lname] %>"></p>
-      <p>Edit Email: <input type="text" name="email" value="<%= @current_user[:email] %>"></p>
-      <p>Edit Username: <input type="text" name="username" value="<%= @current_user[:username] %>"></p>
-      <p>Edit Password: <input type="text" name="password" value="<%= @current_user[:password] %>"></p>
-      <input type="hidden" name="id" value="<%= @current_user[:id] %>">
-      <input type="submit" value="Submit">
-  </form>
-
-
-</div>
+<h2>Edit User Profile</h2>
+<form class="user-form" method="get" action="/update_user">
+    <p>First Name: <input type="text" name="fname" value="<%= @current_user[:fname] %>"></p>
+    <p>Last Name: <input type="text" name="lname" value="<%= @current_user[:lname] %>"></p>
+    <p>Email: <input type="text" name="email" value="<%= @current_user[:email] %>"></p>
+    <p>Username: <input type="text" name="username" value="<%= @current_user[:username] %>"></p>
+    <p>Password: <input type="text" name="password" value="<%= @current_user[:password] %>"></p>
+    <input type="hidden" name="id" value="<%= @current_user[:id] %>">
+    <input type="submit" value="Update Profile">
+</form>

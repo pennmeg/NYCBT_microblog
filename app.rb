@@ -97,6 +97,13 @@ get '/user_profile' do
 	puts "\n******* GET: profile:ID *******"
 	puts "@users: #{@users.inspect}"
 	current_user
+	@posts = Post.all
+	@user_array = []
+	@posts.each do |post|
+		user_id = post[:user_id]
+		user_record = User.find(user_id)
+		@user_array.push(user_record)
+	end
 	erb :user_profile
 end
 

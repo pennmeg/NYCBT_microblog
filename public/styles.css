@@ -43,8 +43,8 @@ header > h1 {
   text-align: center;
 }
 footer {
-  background-color: #323e42;
-  padding: 10px;
+  background-color: #7954a1;
+  padding: 2px;
   text-align: center;
 }
 .postContent {
@@ -70,12 +70,6 @@ footer {
 .menu-item:hover {
   background-color: #7954a1;
 }
-/* ======= ======= ======= forms ======= ======= ======= */
-#form-box {
-  width: 80%;
-  height: 60%;
-  background-color: thistle;
-}
 
 /* ==== wrapper ==== */
 #wrapper {
@@ -83,12 +77,9 @@ footer {
   justify-content: space-around;
 }
 #wrapperOne {
+  margin-top: 10px;
   width: 50%;
 }
 #wrapperTwo {
   width: 50%;
-}
-.user-form {
-  height: 150px;
-  width: 300px;
 }

@@ -1,16 +1,12 @@
 <!-- # ======= delete_user_form ======= -->
-
-<p>Are you sure you want to delete your account?</p>
-
-<div class="form-box">
-  <form class="user-form" method="post" action="/delete_user">
-      <p>Delete Firstname: <input type="text" name="fname" value="<%= @current_user[:fname] %>"></p>
-      <p>Delete Lastname: <input type="text" name="lname" value="<%= @current_user[:lname] %>"></p>
-      <p>Delete Email: <input type="text" name="email" value="<%= @current_user[:email] %>"></p>
-      <p>Delete Username: <input type="text" name="username" value="<%= @current_user[:username] %>"></p>
-      <p>Delete Password: <input type="text" name="password" value="<%= @current_user[:password] %>"></p>
-      <input type="hidden" name="id" value="<%= @current_user[:id] %>">
-      <input type="submit" value="DELETE">
-  </form>
+<h2>Are you sure you want to delete your account?</h2>
+<form class="user-form" method="post" action="/delete_user">
+    <p>First Name: <%= @current_user[:fname] %> </p>
+    <p>Last Name: <%= @current_user[:lname] %> </p>
+    <p>Email: <%= @current_user[:email] %> </p>
+    <p>Username: <%= @current_user[:username] %> </p>
+    <input type="hidden" name="id" value="<%= @current_user[:id] %>">
+    <input type="submit" value="DELETE">
+</form>
 
 </div>
