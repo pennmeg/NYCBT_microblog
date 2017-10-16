@@ -23,6 +23,21 @@ def current_user
 	end
 end
 
+# ======= publish =======
+post '/publish_form' do
+	puts "\n******* GET: publish_form *******"
+	puts "@params.inspect: #{@params.inspect}"
+	Post.create(
+		user_id: session[:user_id],
+		post_content: params[:post_content]
+	)
+	@post = Post.order("created_at").last
+	puts "@post: #{@post.inspect}"
+	@posts = Post.all
+	puts "@posts: #{@posts.inspect}"
+	erb :user_profile
+end
+
 # ======= default =======
 get '/' do
 	puts "\n******* / *******"

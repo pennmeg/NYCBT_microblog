@@ -1,6 +1,12 @@
-<!-- ======= views/user_profile.erb ======= -->
+<!-- <div class="menu-item"><a href="/publish_form?id=<%= @user[:id] %>">Post</a></div> -->
 
-<p>Here is where you can set your home screen preferences!</p>
+<div class="form-box">
+    <form class="user-form" method="post" action="/publish_form">
+      <p>Publish a New Post: <input type="text" name="post_content" value="fds" maxlength="200"></p>
+      <input type="submit" value="Submit">
+
+    </form>
+
 
 <div class="menu-item"><a href="/edit_user_form?id=<%= @current_user[:id] %>">Edit User</a></div>
 <div class="menu-item"><a href="/delete_user_form?id=<%= @current_user[:id] %>">Delete User</a></div>
